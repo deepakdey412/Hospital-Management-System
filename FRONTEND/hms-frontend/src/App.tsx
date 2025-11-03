@@ -1,10 +1,14 @@
 import './App.css';
 import '@mantine/core/styles.css';
-import { MantineProvider, createTheme, Button, Text } from '@mantine/core';
+import { MantineProvider, createTheme, Button, Text, Title } from '@mantine/core';
+import { IconAbacus } from '@tabler/icons-react';
+import AppRoutes from './Routes/AppRoutes';
 
 // ✅ Define custom theme
 const theme = createTheme({
   focusRing: "never",
+  fontFamily : "Poppins ,  sans-serif",
+  headings : {fontFamily :"Merriweather, serif"},
   colors: {
     primary: [
       '#f1fcfa', '#cff8ef', '#9ff0e1', '#67e1cf', '#32b9a9',
@@ -27,13 +31,9 @@ const theme = createTheme({
 export default function App() {
   return (
     <MantineProvider theme={theme}>
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <Text size="xl" fw={700} c="primary.6">
-          Welcome to Mantine with Custom Theme 🎨
-        </Text>
-        <Button variant='gradient'>
-          Custom Themed Button
-        </Button>
+
+      <div>
+        <AppRoutes></AppRoutes>
       </div>
     </MantineProvider>
   );
