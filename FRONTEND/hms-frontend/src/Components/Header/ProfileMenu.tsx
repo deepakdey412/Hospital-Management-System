@@ -1,4 +1,4 @@
-import { Menu, Button, Text, Group, Avatar } from '@mantine/core';
+import { Menu, Button, Text, Group, Avatar } from "@mantine/core";
 import {
   IconSettings,
   IconSearch,
@@ -6,15 +6,17 @@ import {
   IconMessageCircle,
   IconTrash,
   IconArrowsLeftRight,
-} from '@tabler/icons-react';
+} from "@tabler/icons-react";
 
 function ProfileMenu() {
   return (
     <Menu shadow="md" width={220}>
       <Menu.Target>
-        <div className='flex items-center gap-3' >
-<span>Deepak </span>
-        <Avatar src="avatar.png" alt="it's me" />
+        <div className="flex items-center gap-3">
+          <span className="font-semibold text-lg text-neutral-900">
+            Deepak
+          </span>
+          <Avatar variant="filled" src="avatar.png" size={50} alt="it's me" />
         </div>
       </Menu.Target>
 
@@ -48,7 +50,9 @@ function ProfileMenu() {
               <IconSearch size={16} />
               <Text>Search</Text>
             </Group>
-            <Text size="xs" c="dimmed">⌘K</Text>
+            <Text size="xs" c="dimmed">
+              ⌘K
+            </Text>
           </Group>
         </Menu.Item>
 
