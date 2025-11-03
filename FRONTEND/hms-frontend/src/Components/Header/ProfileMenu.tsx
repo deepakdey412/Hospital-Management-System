@@ -16,7 +16,7 @@ function ProfileMenu() {
           <span className="font-semibold text-lg text-neutral-900">
             Deepak
           </span>
-          <Avatar variant="filled" src="avatar.png" size={50} alt="it's me" />
+          <Avatar variant="filled" src="avatar.png" size={45} alt="it's me" />
         </div>
       </Menu.Target>
 
