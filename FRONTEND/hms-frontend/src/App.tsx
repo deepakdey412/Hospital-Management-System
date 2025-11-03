@@ -16,7 +16,12 @@ const theme = createTheme({
     ],
   },
   primaryColor: 'primary',
-  primaryShade:  4 // 👈 tells Mantine which color to use as default
+  primaryShade:  4,
+  defaultGradient :{
+      from : "primary.4 ",
+      to : "primary.8",
+      deg : 132,
+  } 
 });
 
 export default function App() {
@@ -26,7 +31,7 @@ export default function App() {
         <Text size="xl" fw={700} c="primary.6">
           Welcome to Mantine with Custom Theme 🎨
         </Text>
-        <Button color="primary" mt="lg" radius="md">
+        <Button variant='gradient'>
           Custom Themed Button
         </Button>
       </div>
