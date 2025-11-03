@@ -1,11 +1,28 @@
-import React from 'react'
+import React from 'react';
+import { Avatar, Text } from '@mantine/core';
+import { IconHeartbeat } from '@tabler/icons-react';
 
 const SideBar = () => {
   return (
-    <div className=' w-64 h-16 bg-red-200 '>
+    <div className="w-64 bg-red-200 flex flex-col gap-7 items-center pt-3">
+      {/* Header */}
+      <div className="text-red-500 flex gap-1 items-center">
+        <IconHeartbeat size={40} stroke={2.5} />
+        <span className="font-heading font-semibold text-3xl">Pulse</span>
+      </div>
 
+      {/* Profile Section */}
+      <div className="flex flex-col gap-1 items-center">
+        <div className="p-1 bg-white rounded-full shadow-lg">
+          <Avatar variant="filled" src="avatar.png" size="xl" alt="it's me" />
+        </div>
+        <span className="font-medium">Deepak</span>
+        <Text size="sm" color="dimmed">
+          Domain Admin
+        </Text>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;
