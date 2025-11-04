@@ -1,22 +1,33 @@
-import { PasswordInput, TextInput, Button } from "@mantine/core";
+import {
+  PasswordInput,
+  TextInput,
+  Button,
+  SegmentedControl,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconHeartbeat } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
 
-const RegisterPage= () => {
+const RegisterPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
 
   const form = useForm({
     initialValues: {
+      type: "PATIENT",
       email: "",
       password: "",
+      confirmPassword: "",
     },
 
     validate: {
       email: (value: string) =>
         /^\S+@\S+$/.test(value) ? null : "Invalid email",
+
       password: (value: string) => (!value ? "Password is required" : null),
+
+      confirmPassword: (value: string, values: { password: string }) =>
+        value !== values.password ? "Passwords do not match" : null,
     },
   });
 
@@ -47,13 +58,24 @@ const RegisterPage= () => {
         </div>
 
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Log In
+          Register
         </h2>
 
         <form
           onSubmit={form.onSubmit(handleSubmit)}
           className="flex flex-col gap-5"
         >
+          <SegmentedControl
+  {...form.getInputProps("role")}
+  fullWidth
+  color="red"
+  data={[
+    { label: "Admin", value: "ADMIN" },
+    { label: "Patient", value: "PATIENT" },
+    { label: "Doctor", value: "DOCTOR" },
+  ]}
+/>
+
           <TextInput
             {...form.getInputProps("email")}
             label="Email"
@@ -68,6 +90,15 @@ const RegisterPage= () => {
             onVisibilityChange={toggle}
             size="md"
           />
+          <PasswordInput
+            {...form.getInputProps("confirmPassword")}
+            label="Confirm Password"
+            placeholder="Re-enter your password"
+            visible={visible}
+            onVisibilityChange={toggle}
+            size="md"
+          />
+
           <Button
             type="submit" // ✅ Add this line
             color="red"
