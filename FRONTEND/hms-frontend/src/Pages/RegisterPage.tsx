@@ -4,7 +4,7 @@ import { IconHeartbeat } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const RegisterPage= () => {
   const [visible, { toggle }] = useDisclosure(false);
 
   const form = useForm({
@@ -79,12 +79,12 @@ const LoginPage = () => {
             Log In
           </Button>
           <p className="text-center text-gray-600 text-sm mt-3">
-            Don’t have an account?{" "}
+            Has an account?{" "}
             <Link
-              to="/register"
+              to="/login"
               className="text-red-500 font-semibold hover:underline"
             >
-              Register
+              Log in
             </Link>
           </p>
         </form>
@@ -93,4 +93,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
