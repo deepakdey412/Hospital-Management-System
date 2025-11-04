@@ -1,6 +1,8 @@
 import React from 'react';
 import { Avatar, Text } from '@mantine/core';
 import { IconCalendarWeekFilled, IconHeartbeat, IconLayoutGrid, IconMoodWrrrFilled, IconStethoscope, IconVaccine } from '@tabler/icons-react';
+import { link } from 'fs';
+import { NavLink } from 'react-router-dom';
 
 
 const links = [
@@ -32,7 +34,16 @@ const SideBar = () => {
           Domain Admin
         </Text>
       </div>
+      <div className='flex-col gap-1 '>
+        {
+          links.map({
+            (link)=>{
+              return <NavLink to={link.url} key={link.url}></NavLink>
+            }
+          })
+        }
 
+      </div>
 
     </div>
   );
