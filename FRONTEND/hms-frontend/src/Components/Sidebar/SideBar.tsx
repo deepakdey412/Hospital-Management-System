@@ -16,7 +16,7 @@ const SideBar = () => {
         <div className="p-1 bg-white rounded-full shadow-lg">
           <Avatar variant="filled" src="avatar.png" size="xl" alt="it's me" />
         </div>
-        <span className="font-medium">Deepak</span>
+        <span className="font-semibold ">Deepak</span>
         <Text size="sm" color="dimmed">
           Domain Admin
         </Text>
