@@ -15,6 +15,7 @@ const links = [
 const SideBar = () => {
   return (
     <div className="w-64 bg-red-200 flex flex-col gap-7 items-center pt-3">
+      
       {/* Header */}
       <div className="text-red-500 flex gap-1 items-center">
         <IconHeartbeat size={40} stroke={2.5} />
@@ -31,6 +32,8 @@ const SideBar = () => {
           Domain Admin
         </Text>
       </div>
+
+
     </div>
   );
 };
