@@ -1,7 +1,17 @@
 import React from 'react';
 import { Avatar, Text } from '@mantine/core';
-import { IconHeartbeat } from '@tabler/icons-react';
+import { IconCalendarWeekFilled, IconHeartbeat, IconLayoutGrid, IconMoodWrrrFilled, IconStethoscope, IconVaccine } from '@tabler/icons-react';
 
+
+const links = [
+  
+  { name:"Dashboard" , url : "/dashboard" , icon:<IconLayoutGrid stroke={1.5} /> },
+  { name:"Doctor" , url : "/doctor" , icon:<IconStethoscope stroke={1.5} /> },
+  { name:"Patient" , url : "/patient" , icon:<IconMoodWrrrFilled stroke={1.5} /> },
+  { name:"Appointment" , url : "/appointment" , icon:<IconCalendarWeekFilled stroke={1.5} /> },
+  { name:"Appointment" , url : "/appointment" , icon:<IconVaccine stroke={1.5} /> },
+
+]
 const SideBar = () => {
   return (
     <div className="w-64 bg-red-200 flex flex-col gap-7 items-center pt-3">

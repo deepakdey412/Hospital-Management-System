@@ -5,8 +5,8 @@ import SideBar from '../Components/Sidebar/SideBar'
 const AppRoutes = () => {
   return (
     <div className='flex w-full'>
-        <SideBar></SideBar>
         <Header></Header>
+        <SideBar></SideBar>
     </div>
   )
 }
