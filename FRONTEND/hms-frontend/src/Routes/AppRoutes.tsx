@@ -10,5 +10,4 @@ const AppRoutes = () => {
     </div>
   )
 }
-
 export default AppRoutes
