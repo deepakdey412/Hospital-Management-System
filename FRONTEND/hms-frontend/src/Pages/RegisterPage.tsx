@@ -66,15 +66,15 @@ const RegisterPage = () => {
           className="flex flex-col gap-5"
         >
           <SegmentedControl
-  {...form.getInputProps("role")}
-  fullWidth
-  color="red"
-  data={[
-    { label: "Admin", value: "ADMIN" },
-    { label: "Patient", value: "PATIENT" },
-    { label: "Doctor", value: "DOCTOR" },
-  ]}
-/>
+            {...form.getInputProps("role")}
+            fullWidth
+            color="red"
+            data={[
+              { label: "Admin", value: "ADMIN" },
+              { label: "Patient", value: "PATIENT" },
+              { label: "Doctor", value: "DOCTOR" },
+            ]}
+          />
 
           <TextInput
             {...form.getInputProps("email")}
