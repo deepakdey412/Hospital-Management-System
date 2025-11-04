@@ -1,7 +1,9 @@
 package com.hms_backend.UserMS.repository;
 
 import com.hms_backend.UserMS.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
 }
