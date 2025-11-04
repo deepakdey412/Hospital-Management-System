@@ -1,10 +1,27 @@
 import { PasswordInput, TextInput, Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconHeartbeat } from "@tabler/icons-react";
-import React from "react";
+import { useForm } from "@mantine/form";
 
 const LoginPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
+
+  const form = useForm({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+
+    validate: {
+      email: (value: string) =>
+        /^\S+@\S+$/.test(value) ? null : "Invalid email",
+      password: (value: string) => (!value ? "Password is required" : null),
+    },
+  });
+
+  const handleSubmit = (values: typeof form.values) => {
+    console.log(values);
+  };
 
   return (
     <div className="relative h-screen w-screen flex items-center justify-center overflow-hidden">
@@ -32,16 +49,32 @@ const LoginPage = () => {
           Log In
         </h2>
 
-        <form className="flex flex-col gap-5">
-          <TextInput label="Email" placeholder="Enter your email" size="md" />
+        <form
+          onSubmit={form.onSubmit(handleSubmit)}
+          className="flex flex-col gap-5"
+        >
+          <TextInput
+            {...form.getInputProps("email")}
+            label="Email"
+            placeholder="Enter your email"
+            size="md"
+          />
           <PasswordInput
+            {...form.getInputProps("password")}
             label="Password"
             placeholder="Enter your password"
             visible={visible}
             onVisibilityChange={toggle}
             size="md"
           />
-          <Button color="red" fullWidth size="md" radius="md" className="mt-2 hover">
+          <Button
+            type="submit" // ✅ Add this line
+            color="red"
+            fullWidth
+            size="md"
+            radius="md"
+            className="mt-2 hover"
+          >
             Log In
           </Button>
         </form>
