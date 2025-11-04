@@ -1,7 +1,8 @@
-import { ActionIcon } from "@mantine/core";
+import { ActionIcon, Button } from "@mantine/core";
 import { IconBellRinging, IconLayoutSidebarLeftCollapse } from "@tabler/icons-react";
 import React from "react";
 import ProfileMenu from "./ProfileMenu";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,6 +11,7 @@ const Header = () => {
         <IconLayoutSidebarLeftCollapse size={34} />
       </ActionIcon>
       <div className="flex gap-8 items-center mr-5">
+        <Link to="login" ><Button>Log in </Button></Link>
       <ActionIcon color="dark" size="lg" variant="transparent">
         <IconBellRinging size={34} />
       </ActionIcon>
