@@ -1,7 +1,6 @@
 import './App.css';
 import '@mantine/core/styles.css';
-import { MantineProvider, createTheme, Button, Text, Title } from '@mantine/core';
-import { IconAbacus } from '@tabler/icons-react';
+import { MantineProvider, createTheme } from '@mantine/core';
 import AppRoutes from './Routes/AppRoutes';
 
 // ✅ Define custom theme
