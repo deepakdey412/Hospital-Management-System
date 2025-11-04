@@ -12,11 +12,11 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AdminDashboard />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/doctor" element={<Doctor />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          {/* <Route path="/doctor" element={<Doctor />} />
           <Route path="/patient" element={<Patient />} />
           <Route path="/appointment" element={<Appointment />} />
-          <Route path="/vaccine" element={<Vaccine />} />
+          <Route path="/vaccine" element={<Vaccine />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
