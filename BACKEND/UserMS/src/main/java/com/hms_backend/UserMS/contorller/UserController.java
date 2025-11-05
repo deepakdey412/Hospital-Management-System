@@ -5,6 +5,7 @@ import com.hms_backend.UserMS.dto.UserDTO;
 import com.hms_backend.UserMS.exception.HmsException;
 import com.hms_backend.UserMS.repository.UserRepository;
 import com.hms_backend.UserMS.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,13 +24,13 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<ResponseDTO> register(@RequestBody UserDTO userDTO) throws HmsException {
+    public ResponseEntity<ResponseDTO> register(@RequestBody @Valid  UserDTO userDTO) throws HmsException {
         userService.registerUser(userDTO);
         return new ResponseEntity<>(new ResponseDTO("Account  Created..!") , HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO) throws HmsException {
+    public ResponseEntity<UserDTO> login(@RequestBody @Valid UserDTO userDTO) throws HmsException {
         return new ResponseEntity<>(userService.loginUser(userDTO) , HttpStatus.OK);
     }
 
