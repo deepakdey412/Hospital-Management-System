@@ -1,13 +1,13 @@
-package com.dtech.hms_backend;
+package com.hms.hms_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HmsBackendApplication {
+public class HmsGatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HmsBackendApplication.class, args);
+		SpringApplication.run(HmsGatewayApplication.class, args);
 	}
 
 }

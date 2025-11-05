@@ -1,10 +1,10 @@
-package com.dtech.hms_backend;
+package com.hms.hms_gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HmsBackendApplicationTests {
+class HmsGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
