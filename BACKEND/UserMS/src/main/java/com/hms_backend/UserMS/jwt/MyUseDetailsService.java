@@ -8,9 +8,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 
+@Component
 public class MyUseDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
@@ -41,6 +43,5 @@ public class MyUseDetailsService implements UserDetailsService {
             ex.printStackTrace();
         }
         return null;
-
     }
 }
