@@ -63,4 +63,13 @@ public class UserServiceImpl implements UserService{
     public void updateUser(Long id, UserDTO userDTO) {
 
     }
+
+    @Override
+    public UserDTO getUser(String email) {
+        User user = userRepository.findByEmail(email)   // Fetch user by email
+                .orElseThrow(() -> new HmsException("User not found"));
+
+        return userMapper.toDTO(user);
+
+    }
 }
