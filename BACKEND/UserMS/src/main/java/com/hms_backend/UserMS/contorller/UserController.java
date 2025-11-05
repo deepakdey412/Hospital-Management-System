@@ -1,5 +1,6 @@
 package com.hms_backend.UserMS.contorller;
 
+import com.hms_backend.UserMS.dto.LoginDTO;
 import com.hms_backend.UserMS.dto.ResponseDTO;
 import com.hms_backend.UserMS.dto.UserDTO;
 import com.hms_backend.UserMS.exception.HmsException;
@@ -30,8 +31,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> login(@RequestBody @Valid UserDTO userDTO) throws HmsException {
-        return new ResponseEntity<>(userService.loginUser(userDTO) , HttpStatus.OK);
+    public ResponseEntity<UserDTO> login(@RequestBody @Valid LoginDTO loginDTO) throws HmsException {
+        return new ResponseEntity<>(userService.loginUser(loginDTO) , HttpStatus.OK);
     }
 
 }

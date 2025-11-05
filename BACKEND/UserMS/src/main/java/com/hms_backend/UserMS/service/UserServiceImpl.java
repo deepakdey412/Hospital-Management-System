@@ -1,5 +1,6 @@
 package com.hms_backend.UserMS.service;
 
+import com.hms_backend.UserMS.dto.LoginDTO;
 import com.hms_backend.UserMS.dto.UserDTO;
 import com.hms_backend.UserMS.entity.User;
 import com.hms_backend.UserMS.exception.HmsException;
@@ -37,12 +38,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDTO loginUser(UserDTO userDTO) throws HmsException {
+    public UserDTO loginUser(LoginDTO loginDTO) throws HmsException {
 
-        User user = userRepository.findByEmail(userDTO.getEmail())   // Fetch user by email
+        User user = userRepository.findByEmail(loginDTO.getEmail())   // Fetch user by email
                 .orElseThrow(() -> new HmsException("User not found"));
 
-        if (!passwordEncoder.matches(userDTO.getPassword(), user.getPassword())) { // Check if password matches
+        if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) { // Check if password matches
             throw new HmsException("Invalid password");
         }
         user.setPassword(null);
