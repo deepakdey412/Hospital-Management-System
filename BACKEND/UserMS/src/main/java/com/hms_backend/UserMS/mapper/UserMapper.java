@@ -6,23 +6,25 @@ import com.hms_backend.UserMS.entity.User;
 public class UserMapper {
 
     // Convert Entity to DTO
-    public static UserDTO toDTO(User user) {
+    public UserDTO toDTO(User user) {
         if (user == null) return null;
         return new UserDTO(
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
+                user.getPassword(),  // include password
                 user.getRole()
         );
     }
 
     // Convert DTO to Entity
-    public static User toEntity(UserDTO userDTO) {
+    public User toEntity(UserDTO userDTO) {
         if (userDTO == null) return null;
         User user = new User();
         user.setId(userDTO.getId());
         user.setName(userDTO.getName());
         user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());  // include password
         user.setRole(userDTO.getRole());
         return user;
     }
