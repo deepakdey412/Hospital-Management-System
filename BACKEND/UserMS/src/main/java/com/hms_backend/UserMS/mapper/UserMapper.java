@@ -2,7 +2,9 @@ package com.hms_backend.UserMS.mapper;
 
 import com.hms_backend.UserMS.dto.UserDTO;
 import com.hms_backend.UserMS.entity.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
 
     // Convert Entity to DTO
