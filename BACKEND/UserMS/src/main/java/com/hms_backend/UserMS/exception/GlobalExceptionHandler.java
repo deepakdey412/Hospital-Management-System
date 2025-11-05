@@ -1,5 +1,7 @@
 package com.hms_backend.UserMS.exception;
 
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.validation.FieldError;
 import com.hms_backend.UserMS.utility.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +33,23 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(MethodArgumentNotValidException ex) {
+
+        // Build a readable error message from all field errors
+        StringBuilder sb = new StringBuilder();
+        for (FieldError error : ex.getBindingResult().getFieldErrors()) {
+            sb.append(error.getField()).append(": ").append(error.getDefaultMessage()).append("; ");
+        }
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                sb.toString(),
+                HttpStatus.BAD_REQUEST.value(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 }
