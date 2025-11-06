@@ -14,6 +14,7 @@ const RegisterPage = () => {
 
   const form = useForm({
     initialValues: {
+      name: "",
       type: "PATIENT",
       email: "",
       password: "",
@@ -21,10 +22,24 @@ const RegisterPage = () => {
     },
 
     validate: {
+      name: (value: string) => {
+        if (!value) return "Name is required";
+        if (value.length > 20) return "Name must be at most 20 characters";
+        return null;
+      },
       email: (value: string) =>
         /^\S+@\S+$/.test(value) ? null : "Invalid email",
 
-      password: (value: string) => (!value ? "Password is required" : null),
+      password: (value: string) => {
+        if (!value) return "Password is required";
+
+        // Regex for strong password
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+        return regex.test(value)
+          ? null
+          : "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character";
+      },
 
       confirmPassword: (value: string, values: { password: string }) =>
         value !== values.password ? "Passwords do not match" : null,
@@ -77,6 +92,12 @@ const RegisterPage = () => {
           />
 
           <TextInput
+            {...form.getInputProps("name")}
+            label="Name"
+            placeholder="Enter your email"
+            size="md"
+          />
+          <TextInput
             {...form.getInputProps("email")}
             label="Email"
             placeholder="Enter your email"
@@ -115,7 +136,7 @@ const RegisterPage = () => {
               to="/login"
               className="text-red-500 font-semibold hover:underline"
             >
-              Log in
+              Register
             </Link>
           </p>
         </form>
