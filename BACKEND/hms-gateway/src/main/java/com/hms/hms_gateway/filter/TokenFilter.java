@@ -56,7 +56,8 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
                         .setSigningKey(SECRET_KEY)
                         .parseClaimsJws(token)
                         .getBody();
-            }catch (Exception ex){
+            }
+            catch (Exception ex){
                 throw  new RuntimeException("Token is invalid..");
             }
 
