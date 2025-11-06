@@ -128,7 +128,7 @@ const RegisterPage = () => {
             radius="md"
             className="mt-2 hover"
           >
-            Log In
+            Register
           </Button>
           <p className="text-center text-gray-600 text-sm mt-3">
             Has an account?{" "}
@@ -136,7 +136,7 @@ const RegisterPage = () => {
               to="/login"
               className="text-red-500 font-semibold hover:underline"
             >
-              Register
+              Login
             </Link>
           </p>
         </form>
