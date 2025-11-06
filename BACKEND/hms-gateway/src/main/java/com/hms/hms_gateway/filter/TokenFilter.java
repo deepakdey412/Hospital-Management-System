@@ -33,7 +33,7 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
             HttpHeaders headers = exchange.getRequest().getHeaders();
 
             if (!headers.containsKey(HttpHeaders.AUTHORIZATION)) {
-                throw new RuntimeException("Authentication header is missing");
+                throw new RuntimeException("Authentication header is missing...");
 
 //                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
 //                return exchange.getResponse().setComplete();
@@ -42,7 +42,7 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
             String authHeader = headers.getFirst(HttpHeaders.AUTHORIZATION);
 
             if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                throw new RuntimeException("Authentication header is missing");
+                throw new RuntimeException("Authentication header is missing..");
 
 //                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
 //                return exchange.getResponse().setComplete();
@@ -56,15 +56,21 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
                         .setSigningKey(SECRET_KEY)
                         .parseClaimsJws(token)
                         .getBody();
+            }catch (Exception ex){
+                throw  new RuntimeException("Token is invalid..");
+            }
+
 
                 // You can access claims here if needed
-                String userEmail = claims.getSubject();
-                System.out.println("Authenticated user: " + userEmail);
+//                String userEmail = claims.getSubject();
+//                System.out.println("Authenticated user: " + userEmail);
 
-            } catch (SignatureException | IllegalArgumentException e) {
-                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-                return exchange.getResponse().setComplete();
-            }
+//            } catch (SignatureException | IllegalArgumentException e) {
+//                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+//                return exchange.getResponse().setComplete();
+//            }
+
+
 
             // Continue filter chain if token is valid
             return chain.filter(exchange);
