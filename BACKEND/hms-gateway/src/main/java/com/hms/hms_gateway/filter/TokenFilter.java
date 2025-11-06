@@ -56,13 +56,12 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
                         .setSigningKey(SECRET_KEY)
                         .parseClaimsJws(token)
                         .getBody();
-            }
-            catch (Exception ex){
-                throw  new RuntimeException("Token is invalid..");
+            } catch (Exception ex) {
+                throw new RuntimeException("Token is invalid..");
             }
 
 
-                // You can access claims here if needed
+            // You can access claims here if needed
 //                String userEmail = claims.getSubject();
 //                System.out.println("Authenticated user: " + userEmail);
 
@@ -70,7 +69,6 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
 //                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
 //                return exchange.getResponse().setComplete();
 //            }
-
 
 
             // Continue filter chain if token is valid
