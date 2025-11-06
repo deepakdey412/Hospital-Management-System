@@ -29,11 +29,14 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
                 return chain.filter(exchange);
             }
 
+            //Check header of token
             HttpHeaders headers = exchange.getRequest().getHeaders();
 
             if (!headers.containsKey(HttpHeaders.AUTHORIZATION)) {
-                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-                return exchange.getResponse().setComplete();
+                throw new RuntimeException("Authentication header is missing");
+
+//                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+//                return exchange.getResponse().setComplete();
             }
 
             String authHeader = headers.getFirst(HttpHeaders.AUTHORIZATION);
