@@ -16,17 +16,13 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                // Disable CSRF completely for REST API (necessary for POST requests)
-                .csrf(csrf -> csrf.disable())
 
-                // Configure endpoint access
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/**").permitAll() // allow register & login
-                        .anyRequest().authenticated() // protect other endpoints
-                );
-
+        http.csrf(csrf-> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.requestMatchers(request
+                        -> "SECRET".equals(request.getHeader("X-Secrect-Key")))
+                        .permitAll().anyRequest().denyAll());
         return http.build();
+
     }
 
     @Bean
