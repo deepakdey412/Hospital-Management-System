@@ -65,9 +65,9 @@ public class UserController {
         return ResponseEntity.ok(jwt);
     }
 
+
     @GetMapping("/test")
     public ResponseEntity<String> test(){
-
         return new ResponseEntity<>("Tested.....", HttpStatus.OK);
     }
 
