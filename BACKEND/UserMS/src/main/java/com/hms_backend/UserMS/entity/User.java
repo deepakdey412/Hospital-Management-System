@@ -23,7 +23,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role; // Now type-safe enum
+    private Role role;
 
     // Default Constructor
     public User() {}
