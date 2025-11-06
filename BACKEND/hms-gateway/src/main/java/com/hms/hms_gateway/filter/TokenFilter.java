@@ -25,7 +25,9 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
             String path = exchange.getRequest().getPath().toString();
 
             // Skip login and register endpoints
-
+            if (path.equals("/user/login") || path.equals("/user/register")) {
+                return chain.filter(exchange);
+            }
 
             HttpHeaders headers = exchange.getRequest().getHeaders();
 
