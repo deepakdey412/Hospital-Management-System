@@ -41,9 +41,11 @@ public class TokenFilter extends AbstractGatewayFilterFactory<TokenFilter.Config
 
             String authHeader = headers.getFirst(HttpHeaders.AUTHORIZATION);
 
-            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-                return exchange.getResponse().setComplete();
+            if (authHeader == null || !authHeader.startsWith("Bearer")) {
+                throw new RuntimeException("Authentication header is missing");
+
+//                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+//                return exchange.getResponse().setComplete();
             }
 
             String token = authHeader.substring(7); // Remove "Bearer "
