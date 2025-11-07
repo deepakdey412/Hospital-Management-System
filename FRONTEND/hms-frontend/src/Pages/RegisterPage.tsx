@@ -8,6 +8,8 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconHeartbeat } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
+import { registerUser } from "../services/UserService";
+import { error } from "console";
 
 const RegisterPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
@@ -47,7 +49,11 @@ const RegisterPage = () => {
   });
 
   const handleSubmit = (values: typeof form.values) => {
-    console.log(values);
+    registerUser(values).then((data)=>{
+      console.log(data)
+    }).catch((error)=> {
+      console.log(error)
+    })
   };
 
   return (
