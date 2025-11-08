@@ -17,18 +17,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf-> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers(request
-                        -> "SECRET".equals(request.getHeader("X-Secrect-Key")))
-                        .permitAll().anyRequest().denyAll());
-        return http.build();
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/user/register", "/user/login").permitAll()
+                        .anyRequest().authenticated()
+                );
 
+        return http.build();
     }
 
     @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws  Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws Exception {
         return builder.getAuthenticationManager();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
