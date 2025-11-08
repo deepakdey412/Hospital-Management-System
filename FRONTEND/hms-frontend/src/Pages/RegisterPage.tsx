@@ -56,13 +56,12 @@ const RegisterPage = () => {
 
   return (
     <div className="relative h-screen w-screen flex items-center justify-center overflow-hidden">
-      {/* Faded background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
             'url("https://www.aamc.org/sites/default/files/styles/scale_and_crop_1200_x_666/public/d/1/3-hospitalist_patient-story.jpg__992x558_q85_crop-smart_subsampling-2_upscale.jpg?itok=HL_cR-BT")',
-          filter: "brightness(60%)", // only fade image
+          filter: "brightness(60%)", 
         }}
       ></div>
 
@@ -125,7 +124,7 @@ const RegisterPage = () => {
           />
 
           <Button
-            type="submit" // ✅ Add this line
+            type="submit" 
             color="red"
             fullWidth
             size="md"

@@ -69,7 +69,7 @@ const LoginPage = () => {
             size="md"
           />
           <Button
-            type="submit" // ✅ Add this line
+            type="submit" 
             color="red"
             fullWidth
             size="md"
