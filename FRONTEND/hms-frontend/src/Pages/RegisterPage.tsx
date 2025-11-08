@@ -9,7 +9,7 @@ import { IconHeartbeat } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
 import { registerUser } from "../services/UserService";
-import { error } from "console";
+
 
 const RegisterPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
