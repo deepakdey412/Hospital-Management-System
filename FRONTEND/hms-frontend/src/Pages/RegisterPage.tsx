@@ -10,7 +10,6 @@ import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
 import { registerUser } from "../services/UserService";
 
-
 const RegisterPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
 
@@ -35,7 +34,6 @@ const RegisterPage = () => {
       password: (value: string) => {
         if (!value) return "Password is required";
 
-        // Regex for strong password
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
         return regex.test(value)
