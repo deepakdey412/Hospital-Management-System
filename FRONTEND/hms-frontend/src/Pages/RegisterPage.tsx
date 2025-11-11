@@ -47,15 +47,26 @@ const RegisterPage = () => {
     },
   });
 
+  // const handleSubmit = (values: typeof form.values) => {
+  //   registerUser(values).then((data)=>{
+  //     // console.log(data)
+  //     successNotification("Welcome! You have successfully registered.");
+  //   }).catch((error)=> {
+  //     console.log(error)
+  //     // errorNotficaiton("Registered faild")
+  //   })
+  // };
   const handleSubmit = (values: typeof form.values) => {
-    registerUser(values).then((data)=>{
-      console.log(data)
-      successNotification("🎉 Successfully Registered!")
-    }).catch((error)=> {
-      console.log(error)
-      // errorNotficaiton("Registered faild")
+  registerUser(values)
+    .then((data) => {
+      successNotification("Welcome! You have successfully registered."); // uncommented
     })
-  };
+    .catch((error) => {
+      console.log(error)
+      // errorNotification("Registration failed")
+    })
+};
+
 
   return (
     <div className="relative h-screen w-screen flex items-center justify-center overflow-hidden">
@@ -87,7 +98,7 @@ const RegisterPage = () => {
           className="flex flex-col gap-5"
         >
           <SegmentedControl
-            {...form.getInputProps("role")}
+            {...form.getInputProps("type")}
             fullWidth
             color="red"
             data={[
