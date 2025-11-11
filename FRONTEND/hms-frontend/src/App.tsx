@@ -1,6 +1,7 @@
 import './App.css';
 import '@mantine/core/styles.css';
-import { MantineProvider, createTheme } from '@mantine/core';
+import '@mantine/notifications/styles.css';
+import { MantineProvider, createTheme, Notification } from '@mantine/core';
 import AppRoutes from './Routes/AppRoutes';
 
 // ✅ Define custom theme
@@ -30,7 +31,7 @@ const theme = createTheme({
 export default function App() {
   return (
     <MantineProvider theme={theme}>
-
+      <Notification></Notification>
       <div>
         <AppRoutes></AppRoutes>
       </div>
