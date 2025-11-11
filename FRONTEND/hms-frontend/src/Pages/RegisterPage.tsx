@@ -9,6 +9,7 @@ import { IconHeartbeat } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { Link } from "react-router-dom";
 import { registerUser } from "../services/UserService";
+import { successNotification } from "../utility/NotificationService";
 
 const RegisterPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
@@ -49,8 +50,10 @@ const RegisterPage = () => {
   const handleSubmit = (values: typeof form.values) => {
     registerUser(values).then((data)=>{
       console.log(data)
+      successNotification("🎉 Successfully Registered!")
     }).catch((error)=> {
       console.log(error)
+      // errorNotficaiton("Registered faild")
     })
   };
 
