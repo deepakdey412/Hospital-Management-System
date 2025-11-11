@@ -3,6 +3,7 @@ import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import { MantineProvider, createTheme, Notification } from '@mantine/core';
 import AppRoutes from './Routes/AppRoutes';
+import { Notifications } from '@mantine/notifications';
 
 // ✅ Define custom theme
 const theme = createTheme({
@@ -30,11 +31,18 @@ const theme = createTheme({
 
 export default function App() {
   return (
+    // <MantineProvider theme={theme}>
+    //   <div>
+    //   <Notification   position: 'top-center '></Notification>
+    //   </div>
+    //   <div>
+    //     <AppRoutes></AppRoutes>
+    //   </div>
+    // </MantineProvider>
     <MantineProvider theme={theme}>
-      <Notification></Notification>
-      <div>
-        <AppRoutes></AppRoutes>
-      </div>
+      <Notifications position="top-center">
+        <AppRoutes />
+      </Notifications>
     </MantineProvider>
   );
 }
