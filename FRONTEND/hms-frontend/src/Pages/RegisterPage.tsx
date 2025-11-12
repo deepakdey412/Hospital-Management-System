@@ -47,23 +47,14 @@ const RegisterPage = () => {
     },
   });
 
-  // const handleSubmit = (values: typeof form.values) => {
-  //   registerUser(values).then((data)=>{
-  //     // console.log(data)
-  //     successNotification("Welcome! You have successfully registered.");
-  //   }).catch((error)=> {
-  //     console.log(error)
-  //     // errorNotficaiton("Registered faild")
-  //   })
-  // };
   const handleSubmit = (values: typeof form.values) => {
   registerUser(values)
     .then((data) => {
-      successNotification("Welcome! You have successfully registered."); // uncommented
+      successNotification("Welcome! You have successfully registered."); 
     })
     .catch((error) => {
       console.log(error)
-      // errorNotification("Registration failed")
+      
     })
 };
 
